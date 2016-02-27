@@ -1,0 +1,67 @@
+/* VARIABLES */
+
+/* Media queries */
+
+$screen-xs-min: 520px;
+$screen-sm-min: 700px;
+$screen-md-min: 1000px;
+$screen-lg-min: 1200px;
+$screen-xl-min: 1600px;
+$screen-xxl-min: 1900px;
+
+
+$media-nav-breakpoint: $screen-sm-min;
+
+
+$screen-size: 100%;
+
+
+/* Typography */
+
+
+
+$font-sans: 'Noto Sans', sans-serif;
+$font-serif: serif;
+
+$font-size: 1.6rem;
+$line-height: 2.8rem;
+
+$font-size-small: 1.2rem;
+$line-height-small: 1.4rem;
+
+/* Colors */
+
+$color-bg: #fff;
+$color-bg-shaded: #ddd;
+$color-bg-dark: #282236;
+$color-bg-darkblue: #010509;
+
+
+$color-fg: #000;
+$color-fg-shaded: #333;
+
+$color-separator: rgba($color-fg, 0.2);
+
+$color-link: #3E8DF9;
+$color-link-hover: lighten($color-link, 10%);
+$color-link-active: darken($color-link, 5%);
+
+$color-border: #82a7b7;
+
+/* Layout */
+
+$nav-bar-fixed: true;
+$nav-bar-height: $line-height * 3;
+$nav-bar-logo-height: 3rem;
+$nav-bar-logo-width: 3rem;
+$nav-bar-title-font-size: $line-height;
+
+$nav-bar-nav-item-padding-vertical: 1.2rem;
+$nav-bar-nav-item-padding-horizontal: $line-height / 2;
+
+$nav-bar-dropdown-item-padding-vertical: $line-height / 4;
+$nav-bar-dropdown-item-padding-horizontal: $line-height / 2;
+
+$nav-bar-mobile-menu-item-indent: $line-height;
+
+$button-padding: $line-height / 2;

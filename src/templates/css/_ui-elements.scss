@@ -1,0 +1,190 @@
+/* UI ELEMENTS */
+
+
+
+button {
+    cursor: pointer;
+}
+
+.icon {
+    display: inline-block;
+    margin-bottom: -2px;
+    width: 16px;
+    height: 16px;
+
+    fill: currentColor;
+    stroke: currentColor;
+    pointer-events: none;
+
+    use {
+        width: 100%;
+        height: 100%;
+
+        pointer-events: none;
+    }
+
+    .button > &:first-child {
+        margin-left: -$button-padding * 0.5;
+    }
+
+    .button > &:last-child {
+        margin-right: -$button-padding * 0.5;
+    }
+}
+
+%expander-toggle {
+    position: relative;
+
+    width: 100%;
+    padding-right: $line-height;
+
+    &:after {
+        position: absolute;
+        top: calc(50% - 1px);
+        right: 13px;
+
+        display: block;
+        width: 0;
+        height: 0;
+        border: 4px solid;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+
+        content: '';
+    }
+
+    &.is-open,
+    &.is-opening {
+        &:after {
+            transform-origin: 50% 1px;
+            transform: rotate(180deg);
+        }
+    }
+}
+
+
+// Forms
+
+.form-field {
+    margin: 10px 0px 0px 0px;
+
+    &__label {
+        display: inline-block;
+    }
+}
+
+input {
+    font-family: inherit;
+}
+input[type="radio"],
+input[type="checkbox"] {
+    margin: 0px 5px 3px 0px;
+}
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+    height: 30px;
+    border: 1px solid #AFAFAF;
+    box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
+    padding-left: 8px;
+    width: 100%;
+}
+select {
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid #7f7f7f;
+    padding-left: 8px;
+    width: 100%;
+}
+textarea {
+    border: 1px solid #AFAFAF;
+    box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+// Buttons
+
+button,
+input[type="submit"] {
+  display: inline-block;
+  padding: 6px 20px;
+  border: 1px solid darken($color-link, 20%);
+  height: 40px;
+  margin: 0;
+
+  color: #fff;
+  background-image: linear-gradient(to bottom, $color-link, darken($color-link, 10%));
+  font: inherit;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1.8rem;
+  line-height: $line-height;
+  text-decoration: none !important;
+  cursor: pointer;
+  outline: 0;
+  text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+
+  &:hover,
+  &:focus {
+      border-color: $color-link;
+      background: $color-link-hover;
+      color: #fff;
+  }
+
+  &:active {
+      border-color: $color-link-active;
+      background: $color-link-active;
+      color: #fff;
+  }
+}
+
+.button {
+  @extend button;
+
+  &--link {
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    font-weight: inherit;
+    font-size: $font-size;
+    color: $color-link;
+
+    &:hover,
+    &:focus {
+        color: $color-link-hover;
+        background: none;
+    }
+
+    &:active {
+        color: $color-link-active;
+        background: none;
+    }
+  }
+}
+
+.option-description {
+    padding-left: 17px;
+}
+
+.prev-button-wrapper,
+.next-button-wrapper {
+  position: relative;
+  top: 40px;
+
+  height: 0;
+}
+
+.prev-button-wrapper {
+  float: left;
+}
+
+.next-button-wrapper {
+  float: right;
+  margin-right: -20px;
+}

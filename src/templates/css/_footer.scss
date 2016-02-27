@@ -1,0 +1,23 @@
+/* FOOTER  */
+
+.main-footer {
+    &__content {
+        @extend .wrapper;
+        @extend .box;
+        @extend .flex;
+        @extend .flex--between;
+
+        padding-top: $line-height / 2;
+        padding-bottom: $line-height / 2;
+
+        background: $color-fg-shaded;
+        color: $color-bg;
+
+        list-style: none;
+        line-height: 1;
+    }
+
+    small {
+        margin: 0;
+    }
+}

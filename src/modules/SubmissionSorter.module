@@ -1,0 +1,56 @@
+<?php
+
+class SubmissionSorter extends WireData implements Module {
+
+	public static function getModuleInfo() {
+		return array(
+			'title' => "Submission Sorter",
+			'summary' => 'Module to share submissions between submission handlers (Contact Forum site specific)',
+			'version' => 100,
+			'autoload' => true,
+			'singular' => true
+		);
+	}
+
+	public function init() {
+		$this->addHookBefore('FormBuilderProcessor::savePage', $this, 'sortSubmission');
+		$this->addHookAfter('FormBuilderProcessor::savePageDone', $this, 'setSuccessMessage');
+		// $this->addHookBefore('FormBuilderProcessor::renderSuccess', $this, 'renderSuccess');
+	}
+
+	public function sortSubmission($event) {
+		$process = $event->object;
+
+		// Find the submission handlers and the amount of their children
+		$submissionHandlers = new PageArray();
+		foreach(wire('pages')->find("template=submission-handler") as $submissionHandler) {
+			$submissionHandler->submissions = count($submissionHandler->children("template=submission, include=hidden"));
+			$submissionHandlers->add($submissionHandler);
+		}
+
+		// Find the handler with the least children
+		$least = $submissionHandlers->filter("sort=submissions")->first();
+
+		if ($least->id) {
+			// Set new parent for the submission to be the handler with the least children
+			$process->savePageParent = $least->id;
+		}
+	}
+
+	public function setSuccessMessage($event) {
+		$process = $event->object;
+		$page = $event->arguments[0];
+
+		// Add the id of the created page to success message (we assume it's a redirect)
+		$process->successMessage.= "?s={$page->id}";
+	}
+
+	public function renderSuccess($event) {
+		$process = $event->object;
+		$message = $event->argument[0];
+
+		// $event->return = "{$message}/";
+		$event->arguments('message', print_r($process->data, true));
+	}
+
+}

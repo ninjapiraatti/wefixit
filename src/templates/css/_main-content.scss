@@ -1,0 +1,19 @@
+/* CONTENT  */
+
+.main-content {
+    margin: 0 auto;
+    &__content {
+        @extend .wrapper;
+        @extend .box;
+    }
+    &.main-content--fullwidth {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+.main-content--fullwidth {
+  &__content {
+      width: 100%;
+  }
+}

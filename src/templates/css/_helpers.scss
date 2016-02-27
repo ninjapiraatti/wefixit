@@ -1,0 +1,93 @@
+/* HELPERS  */
+
+.dn {
+    display: none;
+}
+
+.mt0 {
+  margin-top: 0;
+}
+
+.screen-reader-text {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: polygon(0px 0px, 0px 0px,0px 0px, 0px 0px);
+}
+
+.center {
+    text-align: center;
+}
+
+/* Classes for doing stuff per breakpoint */
+
+.hide-base {
+   display: none;
+}
+@media only screen and (min-width: $screen-xs-min) {
+
+  $screen-size: $screen-xs-min;
+	.show-xs {
+      display: block;
+  }
+  .hide-xs {
+      display: none;
+  }
+
+} // end of media query
+
+@media only screen and (min-width: $screen-sm-min) {
+
+  .show-sm {
+      display: block;
+  }
+  .hide-sm {
+      display: none;
+  }
+
+} // end of media query
+
+@media only screen and (min-width: $screen-md-min) {
+
+  .show-md {
+      display: block;
+  }
+  .hide-md {
+      display: none;
+  }
+
+} // end of media query
+
+@media only screen and (min-width: $screen-lg-min) {
+
+  .show-lg {
+      display: block;
+  }
+  .hide-lg {
+      display: none;
+  }
+
+} // end of media query
+
+@media only screen and (min-width: $screen-xl-min) {
+
+  .show-xl{
+      display: block;
+  }
+  .hide-xl{
+      display: none;
+  }
+
+} // end of media query
+
+@media only screen and (min-width: $screen-xxl-min) {
+
+  .show-xxl{
+      display: block;
+  }
+  .hide-xxl{
+      display: none;
+  }
+
+} // end of media query
