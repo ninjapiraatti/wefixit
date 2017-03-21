@@ -1,0 +1,8 @@
+<ifmodule mod_filter.c>
+	<FilesMatch "\.(x?html?|css|js(on)?|svg|txt)$">
+		SetOutputFilter DEFLATE
+	</FilesMatch>
+
+	# Use mime type for dynamically generated content
+	AddOutputFilterByType DEFLATE text/plain text/html text/css text/javascript text/xml application/json application/javascript
+</ifmodule>

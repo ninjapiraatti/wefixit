@@ -1,0 +1,20 @@
+.play-button {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: block;
+  background-color: $color-link;
+  background-image: url('../img/play.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40px 40px;
+  margin: 0 auto;
+	&--playing {
+		background-color: $color-fg;
+    background-image: url('../img/pause.png');
+	}
+
+	&--paused {
+		background-color: $color-link-active;
+	}
+}

@@ -1,0 +1,5 @@
+Nimi: {name}
+Email: {email}
+Puhelinnumero: {phone}
+
+Viesti: {message}

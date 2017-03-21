@@ -1,67 +1,66 @@
 /* VARIABLES */
 
+
+
 /* Media queries */
 
-$screen-xs-min: 520px;
-$screen-sm-min: 700px;
-$screen-md-min: 1000px;
-$screen-lg-min: 1200px;
-$screen-xl-min: 1600px;
-$screen-xxl-min: 1900px;
+$breakpoints: (
+  s: 500px,
+  m: 800px,
+  l: 1100px,
+  nav: 800px
+);
 
-
-$media-nav-breakpoint: $screen-sm-min;
-
-
-$screen-size: 100%;
 
 
 /* Typography */
 
+@font-face {font-family: 'TrendSansOne';src: url('../fonts/3332AF_0_0.eot');src: url('../fonts/3332AF_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/3332AF_0_0.woff2') format('woff2'),url('../fonts/3332AF_0_0.woff') format('woff'),url('../fonts/3332AF_0_0.ttf') format('truetype');}
 
-
-$font-sans: 'Noto Sans', sans-serif;
+$font-sans: 'Raleway', sans-serif;
 $font-serif: serif;
+$font-heading: 'TrendSansOne', 'Raleway', sans-serif;
 
-$font-size: 1.6rem;
-$line-height: 2.8rem;
+$font-size: 14px;
+$line-height: 1.75;
 
-$font-size-small: 1.2rem;
-$line-height-small: 1.4rem;
+$font-size-small: 12px;
+$line-height-small: 14/12;
+
+
 
 /* Colors */
 
-$color-bg: #fff;
-$color-bg-shaded: #ddd;
-$color-bg-dark: #282236;
-$color-bg-darkblue: #010509;
+$color-fg: #FDFDFD;
+$color-bg: #333333;
 
-
-$color-fg: #000;
-$color-fg-shaded: #333;
-
-$color-separator: rgba($color-fg, 0.2);
-
-$color-link: #3E8DF9;
+$color-link: #ff6a00;
 $color-link-hover: lighten($color-link, 10%);
 $color-link-active: darken($color-link, 5%);
 
-$color-border: #82a7b7;
+$color-green: #3eefb3;
+$color-yellow: #f8ff8e;
+
+
 
 /* Layout */
 
+$spacing: 20px;
+
+$wrapper-width: 1280px;
+$wrapper-padding: (
+  dynamic: 3%,
+  min: $spacing / 2,
+  max: $spacing
+);
+
+$box-padding: (
+  dynamic: 3%,
+  min: $spacing / 2,
+  max: $spacing
+);
+
+$grid-gutter: $spacing;
+
 $nav-bar-fixed: true;
-$nav-bar-height: $line-height * 3;
-$nav-bar-logo-height: 3rem;
-$nav-bar-logo-width: 3rem;
-$nav-bar-title-font-size: $line-height;
-
-$nav-bar-nav-item-padding-vertical: 1.2rem;
-$nav-bar-nav-item-padding-horizontal: $line-height / 2;
-
-$nav-bar-dropdown-item-padding-vertical: $line-height / 4;
-$nav-bar-dropdown-item-padding-horizontal: $line-height / 2;
-
-$nav-bar-mobile-menu-item-indent: $line-height;
-
-$button-padding: $line-height / 2;
+$nav-bar-height: $spacing * 2;

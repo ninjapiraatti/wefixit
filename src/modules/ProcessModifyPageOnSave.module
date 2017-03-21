@@ -1,0 +1,31 @@
+<?php
+
+class ProcessModifyPageOnSave extends WireData implements Module {
+
+	public static function getModuleInfo() {
+		return array(
+			'title' => "Modify page on save",
+			'summary' => 'Module to do custom stuff on page save',
+			'version' => 1,
+			'autoload' => true,
+			'singular' => true
+		);
+	}
+
+	public function init() {
+		$this->pages->addHookAfter('saveReady', $this, 'saveReadyHook');
+	}
+
+	public function saveReadyHook($event) {
+		$page = $event->arguments[0];
+
+		// Alter fields by template
+		switch ($page->template->name) {
+			// Make some templates always hidden
+      case 'structure':
+				if (!$page->is(Page::statusHidden)) $page->addStatus(Page::statusHidden);
+				break;
+		}
+	}
+
+}

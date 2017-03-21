@@ -1,0 +1,100 @@
+<?php
+
+class ImageResponsiveImages extends WireData implements Module {
+
+	public function init() {
+		$this->addHook("Pageimage::srcset", $this, "srcset");
+	}
+
+
+
+	public function srcset($event) {
+		$image = $event->object;
+		$widths = $event->arguments[0];
+		$aspectRatio = $event->arguments[1];
+		$options = $event->arguments[2];
+
+		$widths = [max($widths), min($widths)];
+
+		$srcset = $this->createVariations($image, $widths, $aspectRatio, $options);
+
+		$this->large = [
+			"width" => $srcset->eq(0)->width,
+			"size" => $srcset->eq(0)->filesize
+		];
+
+		$this->small = [
+			"width" => $srcset->eq(1)->width,
+			"size" => $srcset->eq(1)->filesize
+		];
+
+		if ($this->large["size"] - $this->small["size"] > $this->budget && $this->limit > 2) {
+			$this->sizeChange = ($this->large["size"] / $this->large["width"]) / ($this->small["size"] / $this->small["width"]);
+
+			$currentSize = $this->large["size"];
+			while ($currentSize - $this->budget * 1.5 > $this->small["size"]) {
+				$currentSize-= $this->budget;
+
+				$widths[]= $this->guessWidth($currentSize);
+			}
+
+			if (count($widths) > $this->limit) {
+				$widths = [];
+
+				for ($i = $this->limit - 1; $i >= 0; $i--) {
+					$widths[]= ceil(($this->large["width"] - $this->small["width"]) / ($this->limit - 1) * $i + $this->small["width"]);
+				}
+			}
+
+			$srcset = $this->createVariations($image, $widths, $aspectRatio, $options);
+		}
+
+		$event->return = rtrim($srcset->each("{url} {width}w,"), ",");
+	}
+
+
+
+	private function guessWidth($size) {
+		$progress = $this->getProgress($size);
+		$sizeAdjust = ($this->sizeChange - 1) * $progress + 1;
+
+		return ceil($this->small["width"] / $this->small["size"] * $size / $sizeAdjust);
+	}
+
+
+
+	private function getProgress($size) {
+		return ($size - $this->small["size"]) / ($this->large["size"] - $this->small["size"]);
+	}
+
+
+
+	private function createVariations(Pageimage $image, $widths, $aspectRatio, $options) {
+		$variations = new Pageimages($image->page);
+
+		$variationAspectRatio = $aspectRatio ? $aspectRatio : $image->height / $image->width;
+
+		foreach ($widths as $width) {
+			$largerVariations = $image->getVariations([
+				"info" => true,
+				"width>=" => $width
+			]);
+
+			$variation = reset(array_filter($largerVariations, function($variation) use($variationAspectRatio) {
+				return $variation["height"] / $variation["width"] == $variationAspectRatio;
+			}));
+
+			if ($variation["width"] && $variation["width"] <= $width * 1) {
+				$variation = $variation["name"];
+			} else {
+				$height = round($width * $aspectRatio);
+				$variation = $image->size($width, $height, $options);
+			}
+
+			$variations->add($variation);
+		}
+
+		return $variations;
+	}
+
+}

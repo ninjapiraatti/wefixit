@@ -1,0 +1,68 @@
+/* MODAALI */
+
+// Import the modaali engine
+@import "../../../node_modules/modaali/src/modaali-engine";
+
+body.dialog-open {
+	overflow: hidden;
+
+	&:after {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 2;
+
+		background: rgba(#000, 0.2);
+		content: "";
+	}
+}
+
+.dialog {
+	z-index: 3;
+
+	&--notification {
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+
+		box-sizing: border-box;
+		padding: $spacing / 2 70px $spacing / 2 $spacing / 2;
+		max-height: 100%;
+
+		background: #fff;
+		box-shadow: 0 0 3px rgba(#000, 0.15);
+
+		button {
+			position: absolute;
+			top: $spacing / 2;
+			right: $spacing / 2;
+		}
+
+		&.dialog--animating {
+			display: block !important;
+			transform: translateY(100%); // Prevent flash caused by the Safari bug fix below
+
+			// Animate in
+			&[aria-hidden="false"] {
+				animation: slideUp forwards 0.2s 0.01s cubic-bezier(0, 0, 0, 1); // Tiny delay fixes a Safari bug
+			}
+
+			// Animate out
+			&[aria-hidden="true"] {
+				animation: slideUp reverse 0.2s cubic-bezier(0, 0, 0, 1);
+			}
+		}
+	}
+}
+
+@keyframes slideUp {
+	0% {
+		transform: translateY(100%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}

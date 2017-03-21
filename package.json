@@ -1,17 +1,52 @@
 {
-  "name": "A Kantoraketti website",
+  "name": "wefixit",
   "version": "1.0.0",
-  "description": "If you see this, someone forgot to spesify the project here.",
+  "description": "Wefixit website",
   "author": "Planetoidi",
-  "license": "ISC",
+  "license": "UNLICENSED",
+  "private": true,
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^2.3.1",
-    "gulp-clean": "^0.3.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-jshint": "^1.11.2",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.0.4",
-    "gulp-uglify": "^1.2.0"
+    "autoprefixer": "^6.4.1",
+    "cpx": "^1.5.0",
+    "css-mqpacker": "^5.0.1",
+		"kalukukkaro": "git+https://github.com/ninjapiraatti/kalukukkaro.git",
+    "navipalikka": "git+https://github.com/ninjapiraatti/navipalikka.git",
+		"jemmaaja": "git+https://github.com/ninjapiraatti/jemmaaja.git",
+		"modaali": "git+https://github.com/ninjapiraatti/modaali.git",
+    "node-sass": "^3.10.0",
+    "onchange": "^3.0.2",
+    "parallelshell": "^2.0.0",
+    "postcss-cli": "^2.6.0",
+    "rollup": "^0.36.1",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "uglify-js": "^2.7.3"
+  },
+  "pwDependencies": [
+    "https://github.com/somatonic/MarkupSimpleNavigation/zipball/master"
+  ],
+  "scripts": {
+    "start": "npm run clean && npm run watch",
+    "clean": "rm -rf ProcessWire/site/templates && rm -rf ProcessWire/site/modules && mkdir -p ProcessWire/site/templates && mkdir -p ProcessWire/site/modules",
+    "build": "parallelshell 'npm run build:templates' 'npm run build:modules'",
+    "build:templates": "npm run clean && parallelshell 'npm run build:templates:js' 'npm run build:templates:css' 'npm run build:templates:assets'",
+    "build:templates:js": "rollup -c && uglifyjs ProcessWire/site/templates/js/main.js -mc -o ProcessWire/site/templates/js/main.min.js",
+    "build:templates:css": "node-sass --output-style compressed -o ProcessWire/site/templates src/templates && postcss -u css-mqpacker --css-mqpacker.sort -u autoprefixer -r ProcessWire/site/templates/**/*.css",
+    "build:templates:assets": "cpx 'src/templates/**/*.{html,php,gif,jpg,jpeg,png,woff,woff2,svg,js}' 'ProcessWire/site/templates'",
+    "build:modules": "cp -R 'src/modules/' 'ProcessWire/site/modules' && cp -R 'processwire_modules/' 'ProcessWire/site/modules'",
+    "watch": "parallelshell 'npm run watch:templates' 'npm run watch:modules'",
+    "watch:templates": "parallelshell 'npm run watch:templates:js' 'npm run watch:templates:css' 'npm run watch:templates:assets'",
+    "watch:templates:js": "npm run build:templates:js && onchange 'src/templates/**/*.js' -- npm run build:templates:js",
+    "watch:templates:css": "npm run build:templates:css && onchange 'src/templates/**/*.scss' -- npm run build:templates:css",
+    "watch:templates:assets": "cpx -w 'src/templates/**/*.{html,php,gif,jpg,jpeg,png,woff,woff2,svg,js}' 'ProcessWire/site/templates'",
+    "watch:modules": "npm run build:modules && onchange 'src/modules/**/*' -- npm run build:modules",
+    "postinstall": "if [[ ! -d 'processwire_modules' ]]; then npm run download:pw-modules && npm run unzip:pw-modules; fi",
+    "download:pw-modules": "mkdir -p processwire_modules && cd processwire_modules && (cat ../package.json | sed -e '1,/pwDependencies/d' | sed -e '/]/,$d' | tr -d '\", ') | while read -r line; do curl -LOJSs $line; done",
+    "unzip:pw-modules": "cd processwire_modules && unzip -q '*.zip' && rm *.zip"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    }
   }
 }

@@ -1,1 +1,27 @@
 /* MIXINS */
+
+// CREATE RESPONSIVE HELPERS
+// Example:
+// @include responsive-helper(".w1\\/2", (s, m)) { width: 50%; };
+@mixin responsive-helper($selector, $use-breakpoints: null) {
+  #{$selector} {
+    @content;
+  }
+
+  @if $use-breakpoints {
+    @each $breakpoint in $use-breakpoints {
+      $suffix: \@#{$breakpoint};
+      $min-width: map-get($breakpoints, $breakpoint);
+
+      @if not $min-width {
+        @warn "Could not create responsive-helper '#{$selector}#{$suffix}' (no '#{$breakpoint}' in $breakpoints)";
+      } @else {
+        @media (min-width: $min-width) {
+          #{$selector}#{$suffix} {
+            @content;
+          }
+        }
+      }
+    }
+  }
+}

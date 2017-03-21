@@ -1,79 +1,76 @@
 /* TYPOGRAPHY */
 
-html {
-    font-size: 10px;
-}
-
 body {
-    font-family: $font-sans;
-    font-weight: 300;
-    font-size: $font-size;
-    line-height: $line-height;
-    color: $color-fg;
+  font-family: $font-sans;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $color-fg;
 }
 
 small,
 .small {
-    font-size: $font-size-small;
-    line-height: $line-height-small;
+  font-size: $font-size-small;
+  line-height: $line-height-small;
 }
 
 small {
-    display: block;
+  display: block;
 
-    &.normal {
-        font-size: inherit;
-        line-height: inherit;
-    }
+  &.normal {
+    font-size: inherit;
+    line-height: inherit;
+  }
 
-    p & {
-        display: inline;
-    }
+  p & {
+    display: inline;
+  }
 }
 
 a {
-    color: $color-link;
-    text-decoration: none;
+  color: $color-link;
+  text-decoration: underline;
 
-    &:hover,
-    &:focus {
-        color: $color-link-hover;
-        text-decoration: underline;
-    }
+  &:hover,
+  &:focus {
+    color: $color-link-hover;
+  }
 
-    &:active {
-        color: $color-link-active;
-    }
+  &:active {
+    color: $color-link-active;
+  }
 }
 
-
 h1 {
-    font-size: $line-height;
-    line-height: $line-height;
-    font-family: $font-sans;
+  font-size: ceil($line-height * $font-size);
+  line-height: 1;
+}
 
-    @media (min-width: $screen-lg-min) {
-        font-size: $line-height * 1.5;
-        line-height: $line-height * 1.5;
-    }
+h1,
+h2,
+h3 {
+  font-family: $font-heading;
 }
 
 h2 {
-    font-size: $font-size * 1.375;
-
-    @media (min-width: $screen-lg-min) {
-        font-size: $font-size * 1.865;
-    }
+  font-size: 1.4rem;
 }
 
-h3 {
-    font-size: $font-size;
-
-    @media (min-width: $screen-lg-min) {
-        font-size: $font-size * 1.375;
-    }
+ul {
+  &.unstyled {
+    list-style: none;
+  }
 }
 
-h4 {
-    font-weight: 600;
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
 }

@@ -1,93 +1,32 @@
 /* HELPERS  */
 
-.dn {
-    display: none;
-}
-
-.mt0 {
-  margin-top: 0;
-}
-
 .screen-reader-text {
-    position: absolute !important;
-    height: 1px; width: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: polygon(0px 0px, 0px 0px,0px 0px, 0px 0px);
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: polygon(0px 0px, 0px 0px,0px 0px, 0px 0px);
 }
 
-.center {
-    text-align: center;
+.mt1 {
+  margin-top: $spacing;
 }
 
-/* Classes for doing stuff per breakpoint */
-
-.hide-base {
-   display: none;
+.mb1 {
+  margin-bottom: $spacing;
 }
-@media only screen and (min-width: $screen-xs-min) {
 
-  $screen-size: $screen-xs-min;
-	.show-xs {
-      display: block;
-  }
-  .hide-xs {
-      display: none;
-  }
+.mt2 {
+  margin-top: $spacing * 2;
+}
 
-} // end of media query
+.mb2 {
+  margin-bottom: $spacing * 2;
+}
 
-@media only screen and (min-width: $screen-sm-min) {
+.tac {
+  text-align: center;
+}
 
-  .show-sm {
-      display: block;
-  }
-  .hide-sm {
-      display: none;
-  }
-
-} // end of media query
-
-@media only screen and (min-width: $screen-md-min) {
-
-  .show-md {
-      display: block;
-  }
-  .hide-md {
-      display: none;
-  }
-
-} // end of media query
-
-@media only screen and (min-width: $screen-lg-min) {
-
-  .show-lg {
-      display: block;
-  }
-  .hide-lg {
-      display: none;
-  }
-
-} // end of media query
-
-@media only screen and (min-width: $screen-xl-min) {
-
-  .show-xl{
-      display: block;
-  }
-  .hide-xl{
-      display: none;
-  }
-
-} // end of media query
-
-@media only screen and (min-width: $screen-xxl-min) {
-
-  .show-xxl{
-      display: block;
-  }
-  .hide-xxl{
-      display: none;
-  }
-
-} // end of media query
+@include responsive-helper(".w1\\/5", (s,m,l)) { width: 20%; };
+@include responsive-helper(".w1\\/2", (s,m)) { width: 50%; };

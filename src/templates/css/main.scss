@@ -3,49 +3,16 @@
 @import "variables";
 @import "mixins";
 @import "reset";
-@import "layout";
-@import "flexboxgrid";
-@import "helpers";
-@import "header";
-@import "footer";
-@import "main-content";
 @import "typography";
 @import "ui-elements";
-@import "navipalikka";
+@import "modaali";
+@import "grid";
+@import "layout";
 @import "navigation";
-
-@media only screen and (min-width: $screen-xs-min) {
-
-	@import "breakpoint_xs";
-
-} // end of media query
-
-@media only screen and (min-width: $screen-sm-min) {
-
-	@import "breakpoint_sm";
-
-} // end of media query
-
-@media only screen and (min-width: $screen-md-min) {
-
-	@import "breakpoint_md";
-
-} // end of media query
-
-@media only screen and (min-width: $screen-lg-min) {
-
-	@import "breakpoint_lg";
-
-} // end of media query
-
-@media only screen and (min-width: $screen-xl-min) {
-
-	@import "breakpoint_xl";
-
-} // end of media query
-
-@media only screen and (min-width: $screen-xxl-min) {
-
-	@import "breakpoint_xxl";
-
-} // end of media query
+@import "navigation-main";
+@import "header";
+@import "footer";
+@import "helpers";
+@import "hero";
+@import "audioplayer";
+@import "reference";

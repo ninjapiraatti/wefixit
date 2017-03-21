@@ -4,7 +4,10 @@
 
 ?>
 
-<h1><?=$page->title?></h1>
+<div class="reference">
+  <h2><?=$page->title?></h2>
+  <?=$page->body?>
+</div>
 
 <?php
 

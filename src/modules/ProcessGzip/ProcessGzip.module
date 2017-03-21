@@ -1,0 +1,43 @@
+<?php
+
+class ProcessGzip extends WireData implements Module {
+
+	public function init() {
+		if (!$this->user->isSuperuser()) return;
+
+		$this->htaccess = "{$this->config->paths->root}.htaccess";
+
+		$this->addHookBefore("Page::render", $this, "testGzip");
+	}
+
+
+
+	public function testGzip($event) {
+		$firstLine = explode("\n", $this->getRule())[0];
+
+		if (strpos(file_get_contents($this->htaccess), $firstLine) === false) {
+			$this->enableGzip();
+		}
+	}
+
+
+
+	private function enableGzip() {
+		$rule = $this->getRule();
+
+		$htaccess = fopen($this->htaccess, "a");
+		fwrite($htaccess, "\n" . $rule);
+		fclose($htaccess);
+
+		$this->session->message($this->_("Added Gzip rule to .htaccess"));
+	}
+
+
+	private function getRule() {
+		$modulePath = $this->config->paths->{$this->className()};
+		$rule = file_get_contents("{$modulePath}deflate.txt");
+
+		return $rule;
+	}
+
+}
