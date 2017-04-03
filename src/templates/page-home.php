@@ -10,27 +10,28 @@
     <?=$page->body?>
   </div>
 </div>
-
+<!--
 <div class="wrapper box" id="<?=$pages->get(1018)->name?>">
   <h2 class="tac mt1"><?=$pages->get(1018)->title?></h2>
   <div class="tac mb2"><?=$pages->get(1018)->body?></div>
   <div class="grid grid--gutter">
-    <?php
+    <?php /*
       $references = $pages->find("template=page-reference");
       foreach ($references as $reference) {
       echo "<div class='w1/2@s w1/5@l'>";
       echo $reference->render('_partial-reference.php');
       echo "</div>";
-    }
+    }*/
     ?>
   </div>
 </div>
 
 <div class="bg-color">
   <div class="wrapper wrapper--supernarrow box">
-    <?php echo $pages->get("template=page-contact")->render('page-contact.php');?>
+    <?php //echo $pages->get("template=page-contact")->render('page-contact.php');?>
   </div>
 </div>
+-->
 
 <?php
 
