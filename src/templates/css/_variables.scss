@@ -8,18 +8,16 @@ $breakpoints: (
   s: 500px,
   m: 800px,
   l: 1100px,
-  nav: 800px
+  nav: 540px
 );
 
 
 
 /* Typography */
 
-@font-face {font-family: 'TrendSansOne';src: url('../fonts/3332AF_0_0.eot');src: url('../fonts/3332AF_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/3332AF_0_0.woff2') format('woff2'),url('../fonts/3332AF_0_0.woff') format('woff'),url('../fonts/3332AF_0_0.ttf') format('truetype');}
-
-$font-sans: 'Raleway', sans-serif;
+$font-sans: 'Lato', sans-serif;
 $font-serif: serif;
-$font-heading: 'TrendSansOne', 'Raleway', sans-serif;
+$font-heading: 'Lato', sans-serif;
 
 $font-size: 14px;
 $line-height: 1.75;
@@ -46,7 +44,7 @@ $color-red: #ff0000;
 
 $spacing: 20px;
 
-$wrapper-width: 1280px;
+$wrapper-width: 980px;
 $wrapper-padding: (
   dynamic: 3%,
   min: $spacing / 2,

@@ -24,9 +24,21 @@
   margin-bottom: $spacing * 2;
 }
 
+.mb3 {
+  margin-bottom: $spacing * 3;
+}
+
+.pt3 {
+  padding-top: $spacing * 3;
+}
+
 .tac {
   text-align: center;
 }
 
-@include responsive-helper(".w1\\/5", (s,m,l)) { width: 20%; };
+.darkbg {
+  color: #fff;
+  background-color: $color-bg;
+}
+
 @include responsive-helper(".w1\\/2", (s,m)) { width: 50%; };

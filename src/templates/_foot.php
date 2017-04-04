@@ -11,7 +11,7 @@
 	</footer>
 
   <script src="<?=$config->urls->templates?>js/main.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Raleway:500,500i,800,800i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
 
 </body>
 </html>
