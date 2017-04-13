@@ -41,7 +41,7 @@
 		"type" => "submit",
 		"name" => "submit",
 		"value" => __("Lähetä"),
-		"class" => "button button--large button--center mt1"
+		"class" => "button button--large button--center mt2"
 	]);
 
 	// If the form was submitted

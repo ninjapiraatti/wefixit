@@ -2,7 +2,6 @@
 
 @if ($nav-bar-fixed) {
   body.js {
-    padding-top: $nav-bar-height;
 
     .main-header {
       position: fixed;
