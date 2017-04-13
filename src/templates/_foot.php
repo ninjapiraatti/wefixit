@@ -10,7 +10,7 @@
 	  </div>
 	</footer>
 
-  <script src="<?=$config->urls->templates?>js/main.js"></script>
+  <script src="<?=$config->urls->templates?>js/main.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
 
 </body>
