@@ -10,38 +10,44 @@
 <?php
 
 	$form = $modules->get("InputfieldForm");
-	$form->action = "{$page->url}";
-	$form->id = $page->name;
+	$form->action = "{$home->url}#contact";
+	$form->id = "contact";
 	setupFormMarkup($form);
 
 	$formInput = $modules->get("InputfieldText");
-  $formInput->name = "nimi";
+  $formInput->name = "nimike";
   $formInput->label = "Nimi:";
   $formInput->required = true;
   $form->add($formInput);
 
   $formInput = $modules->get("InputfieldEmail");
-  $formInput->name = "email";
+  $formInput->name = "mailike";
   $formInput->label = "Sähköposti:";
   $formInput->required = true;
   $form->add($formInput);
 
   $formInput = $modules->get("InputfieldText");
-  $formInput->name = "phone";
+  $formInput->name = "foonike";
   $formInput->label = "Puhelinnumero:";
   $form->add($formInput);
 
-  $formInput = $modules->get("InputfieldTextarea");
-  $formInput->name = "message";
+	$formInput = $modules->get("InputfieldTextarea");
+  $formInput->name = "viestike";
   $formInput->label = "Viestisi:";
   $formInput->required = true;
+  $form->add($formInput);
+
+	$formInput = $modules->get("InputfieldText");
+  $formInput->name = "puh"; // As in Nalle Puh, not puhelin
+  $formInput->label = "Älä välitä tästä kentästä:";
+	$formInput->wrapClass = "dn";
   $form->add($formInput);
 
 	$form->add([
 		"type" => "submit",
 		"name" => "submit",
 		"value" => __("Lähetä"),
-		"class" => "button button--large button--center mt2"
+		"class" => "button button--large button--center"
 	]);
 
 	// If the form was submitted
@@ -52,33 +58,40 @@
 		// If there are no errors
 		if (!$form->getErrors()) {
 			// Success
-			// Build subject
-			$subject = "Uusi yhteydenotto";
 
-			// Build message from template file
-			$message = file_get_contents("{$config->paths->templates}email-contact.txt");
-			$message = str_replace("{name}", $form->nimi->value, $message);
-			$message = str_replace("{email}", $form->email->value, $message);
-			$message = str_replace("{phone}", $form->phone->value->title, $message);
-			$message = str_replace("{message}", $form->message->value, $message);
+			// If the honeypot is empty, send email
+			if ($form->puh->value === "") {
+				// Build subject
+				$subject = "Uusi yhteydenotto";
 
-			$mail = wireMail();
-			$mail->to("{$home->email}")->ToName("{$home->title}");
-			$mail->from("{$form->email->value}")->fromName("{$form->title->value}");
-			$mail->subject($subject);
-			$mail->body($message);
-			$mail->send();
+				// Build message from template file
+				$message = file_get_contents("{$config->paths->templates}email-contact.txt");
+				$message = str_replace("{name}", $form->nimike->value, $message);
+				$message = str_replace("{email}", $form->mailike->value, $message);
+				$message = str_replace("{phone}", $form->foonike->value, $message);
+				$message = str_replace("{message}", $form->viestike->value, $message);
+
+				$mail = wireMail();
+				$mail->to("{$home->email}")->ToName("{$home->title}");
+				$mail->from("{$form->mailike->value}")->fromName("{$form->nimike->value}");
+				$mail->subject($subject);
+				$mail->body($message);
+				$mail->send();
+			}
 
 			// Prevent duplicate submissions
 			$session->CSRF->resetToken();
 
 			// Redirect to thank you page
-			$session->redirect($pages->get(1025)->httpUrl);
+			$session->redirect($pages->get(1031)->httpUrl);
 		} else {
 			// Error
 			$form->description = __("Korjaathan korostetut kentät.");
 		}
 	}
+
+	// Make honeypot required to fool the bots
+	$form->puh->required = true;
 
 ?>
 

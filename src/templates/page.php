@@ -4,7 +4,10 @@
 
 ?>
 
-<h1><?=$page->title?></h1>
+<div class="wrapper box">
+  <h1 class="tagline"><?=$page->title?></h1>
+  <div class="tac"><?=$page->body?></div>
+</div>
 
 <?php
 

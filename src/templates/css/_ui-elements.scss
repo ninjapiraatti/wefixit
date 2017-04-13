@@ -83,7 +83,7 @@ label {
 form h2 {
 	font: inherit;
 	font-weight: bold;
-	color: $color-link;
+	color: $color-error;
 }
 
 form ul {
@@ -109,6 +109,7 @@ select {
 	outline: 0;
   background-color: $color-fg;
   box-shadow: inset 0px 0px 5px rgba(0,0,0,0.2);
+  color: #000;
 
 	&:focus {
     border-color: $color-link;
@@ -158,12 +159,12 @@ ul.form-fields {
 	}
 
 	&--error {
-		color: $color-link;
+		color: $color-error;
 
 		input,
 		select,
 		textarea {
-			border-color: $color-link;
+			border-color: $color-error;
 		}
 	}
 
