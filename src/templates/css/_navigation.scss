@@ -3,16 +3,70 @@
 .nav {
   list-style: none;
 
-  & & {
+  & &:not(.dropdown) {
     margin-left: $spacing;
   }
-}
 
-.nav-link {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  text-decoration: none;
-  font-family: $font-heading;
-  letter-spacing: -0.5px;
+  &__item {
+
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    font-weight: normal;
+    font-size: 0.85rem;
+
+    .active > & {
+      color: darken($color-bg, 10%);
+    }
+
+    &:hover,
+    &:focus {
+      color: darken($color-bg, 10%);
+    }
+
+    &:active {
+      color: darken($color-bg, 20%);
+    }
+
+    .dropdown & {
+      display: flex;
+  		justify-content: space-between;
+  		align-items: center;
+      padding: 5px;
+
+      cursor: default;
+
+      &:hover,
+      &:focus {
+        color: darken($color-bg, 10%);
+        background: $color-black;
+      }
+
+      &:active {
+        color: $color-bg;
+        background: $color-black;
+      }
+    }
+  }
+  &--inline {
+		display: flex;
+		flex-direction: row;
+	}
+
+	&--center {
+		justify-content: center;
+	}
+  &--pagination {
+		@extend .nav--inline;
+		@extend .nav--center;
+
+		margin-top: $spacing;
+
+		& > li:not(:first-child) {
+			padding-left: 2px;
+		}
+	}
 }

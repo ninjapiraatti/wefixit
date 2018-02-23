@@ -1,87 +1,55 @@
 /* MAIN NAVIGATION */
 
-// Import navipalikka engine
-$navipalikka-breakpoint: map-get($breakpoints, nav);
-@import "../../../node_modules/navipalikka/src/navipalikka-engine";
-
-
-
-.responsive-nav-toggle {
-  position: absolute;
-  top: $spacing / 2;
-  right: $spacing / 2;
-
-  width: $spacing;
-  height: $spacing;
-}
-
-.responsive-nav {
-
-  .nav-link {
-    display: block;
-    transition: 0.2s color ease-in-out;
-    color: $color-bg;
-
-    &:hover,
-    &:focus {
-      color: $color-link-hover;
-    }
-
-    &:active {
-      color: $color-link-active;
-    }
-  }
-
-}
-
-// Highlight parent too
-.responsive-nav .active > .nav-link {
-  @extend .nav-link:active;
+body {
+	&:before {
+		@media (max-width: map-get($breakpoints, nav)) {
+			display: none;
+			content: "mobile";
+		}
+		@media (min-width: map-get($breakpoints, nav)) {
+			display: none;
+			content: "desktop";
+		}
+	}
 }
 
 
 
-// Mobile
+.nav--main {
 
-@media (max-width: map-get($breakpoints, nav) - 1) {
+	.dropdown {
+		padding: 0;
+		margin: 0;
+		box-shadow: none;
+		border-radius: 0;
+	}
 
-  .responsive-nav-viewport {
-    margin: 0 (-$spacing);
-  }
+	@media (max-width: map-get($breakpoints, nav)) {
+		// First level
+		& > li {
+			&:first-child {
+				padding-top: 0.5em;
+			}
 
-  .responsive-nav {
+			&:last-child {
+				padding-bottom: 0.5em;
+			}
+		}
+	}
 
-    .nav-link {
-      padding: $spacing / 4 $spacing;
-    }
+	@media (min-width: map-get($breakpoints, nav)) {
+		display: flex;
 
-  }
+		// First level
+		& > li {
+			& > .nav__link {
+				padding: 0.5em;
+			}
 
-}
-
-
-
-// Desktop
-
-@media (min-width: map-get($breakpoints, nav)) {
-
-  .nav.dropdown {
-    width: 100%;
-    min-width: 10em;
-    max-width: 20em;
-    margin: 0;
-    padding: 0.25em 0;
-
-    background: $color-bg;
-    box-shadow: 0 3px 6px rgba(#000, 0.15);
-  }
-
-  .responsive-nav {
-
-    .nav-link {
-      padding: 0 $spacing / 4;
-    }
-
-  }
+			&.active > .nav__link:not(:hover):not(:focus):not(:active) {
+				color: $color-link;
+			}
+		}
+	}
 
 }

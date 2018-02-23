@@ -30,11 +30,16 @@
       </div>
     </div>
   </div>
-  <h2 class="tac mt1"><?=$pages->get(1017)->title?></h2>
+  <h2 class="tac mt1" id="palvelut"><?=$pages->get(1017)->title?></h2>
   <div class="tac mb2">
     <?=$pages->get(1017)->body?>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d495.6620356530144!2d25.0329918!3d60.2031057!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNjDCsDEyJzExLjIiTiAyNcKwMDInMDAuNyJF!5e0!3m2!1sen!2sfi!4v1519288081024" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
   </div>
+
+  <h2 class="tac mt1" id="hinnasto"><?=$pages->get(1033)->title?></h2>
+  <div class="tac mb2">
+    <?=$pages->get(1033)->body?>
+  </div>
+
   <div class="grid grid--gutter">
     <?php
       $references = $pages->find("template=page-reference");

@@ -32,6 +32,7 @@ $line-height-small: 14/12;
 
 $color-fg: #FDFDFD;
 $color-bg: #333333;
+$color-black: #111;
 
 $color-link: #00ff66;
 $color-link-hover: lighten($color-link, 10%);
@@ -62,4 +63,4 @@ $box-padding: (
 $grid-gutter: $spacing;
 
 $nav-bar-fixed: true;
-$nav-bar-height: $spacing * 2;
+$nav-bar-height: $spacing * 2.5;

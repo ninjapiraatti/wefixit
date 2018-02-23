@@ -1,9 +1,12 @@
 import nodeResolve from "rollup-plugin-node-resolve";
+import commonjs from 'rollup-plugin-commonjs';
 
 export default {
-  entry: "src/templates/js/main.js",
-  dest: "ProcessWire/site/templates/js/main.js",
-  format: "iife",
-  moduleName: "common",
-  plugins: [nodeResolve()]
+  input: "src/templates/js/main.js",
+  "output": {
+    file: "ProcessWire/site/templates/js/main.js",
+    format: "iife",
+  },
+  name: "common",
+  plugins: [nodeResolve(), commonjs()]
 };
