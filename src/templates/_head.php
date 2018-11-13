@@ -14,6 +14,16 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00260f">
   <meta name="theme-color" content="#00ff66">
   <?php if (isset($head)) foreach ($head as $entry) echo $entry; ?>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129063242-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-129063242-1');
+  </script>
+
 </head>
 
 <body class="<?=implode(" ", $bodyClasses)?>">
