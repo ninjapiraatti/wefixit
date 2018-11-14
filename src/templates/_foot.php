@@ -4,7 +4,7 @@
 	<footer class="main-footer">
 	  <div class="wrapper">
 	    <ul class="grid grid--gutter">
-	      <li><small><a href="<?=$home->email?>"><?=$home->title?></a> &copy; <?=date('Y')?></small></li>
+	      <li><small><a href="mailto:<?=$home->email?>"><?=$home->title?></a> &copy; <?=date('Y')?></small></li>
 				<li class="main-footer__some">
 					<a class="icon" href="https://www.facebook.com/Wefixit-111540786293874">
 						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
@@ -26,7 +26,7 @@
 	  </div>
 	</footer>
 
-  <script src="<?=$config->urls->templates?>js/main.min.js"></script>
+  <script src="<?=$config->urls->templates?>js/main.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
 
 </body>
