@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
   <link rel="manifest" href="/manifest.json">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00260f">
-  <meta name="theme-color" content="#00ff66">
+  <meta name="theme-color" content="#00f0dd">
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

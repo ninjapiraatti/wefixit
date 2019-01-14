@@ -36,8 +36,55 @@
   </div>
 
   <h2 class="tac mt1" id="hinnasto"><?=$pages->get(1033)->title?></h2>
-  <div class="tac mb2">
-    <?=$pages->get(1033)->body?>
+  <div class="pricing">
+  	<div class="pricing__nav">
+  		<ul class="unstyled">
+  			<li><a class="slider-nav" data-slider="pricing-slider" data-slide="0" href="#">MacBook</a></li>
+  			<li><a class="slider-nav" data-slider="pricing-slider" data-slide="1" href="#">iPhone</a></li>
+  			<li><a class="slider-nav" data-slider="pricing-slider" data-slide="2" href="#">Android</a></li>
+  			<li><a class="slider-nav" data-slider="pricing-slider" data-slide="3" href="#">PC</a></li>
+  		</ul>
+  	</div>
+
+  	<div class="slider-viewport">
+  		<ul id="pricing-slider" class="slider">
+  			<li class="slider__slide">
+  				<ul class="unstyled">
+  					<li>Lorem</li>
+            <li>Ipsum</li>
+            <li>Dolor</li>
+  				</ul>
+  				<a href="<?php echo $pages->get(1022)->url;?>">Lisää</a>
+  			</li>
+
+        <li class="slider__slide">
+  				<ul class="unstyled">
+  					<li>Lorem</li>
+            <li>Ipsum</li>
+            <li>Dolor</li>
+  				</ul>
+  				<a href="<?php echo $pages->get(1022)->url;?>">Lisää</a>
+  			</li>
+
+        <li class="slider__slide">
+  				<ul class="unstyled">
+  					<li>Lorem</li>
+            <li>Ipsum</li>
+            <li>Dolor</li>
+  				</ul>
+  				<a href="<?php echo $pages->get(1022)->url;?>">Lisää</a>
+  			</li>
+
+        <li class="slider__slide">
+  				<ul class="unstyled">
+  					<li>Lorem</li>
+            <li>Ipsum</li>
+            <li>Dolor</li>
+  				</ul>
+  				<a href="<?php echo $pages->get(1022)->url;?>">Lisää</a>
+  			</li>
+  		</ul>
+  	</div>
   </div>
 
   <div class="grid grid--gutter">
