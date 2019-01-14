@@ -5,7 +5,10 @@
 ?>
 
 <div class="hero">
-  <h1 class="tagline"><?=$page->copy?></h1>
+  <div class="wrapper">
+    <h1 class="hero__tagline"><?=$page->copy?></h1>
+    <p class="hero__copy"><?=$page->copy?></p>
+  </div>
 </div>
 <div class="wrapper box services" id="<?=$pages->get(1017)->name?>">
   <div class="grid grid--gutter">
@@ -30,13 +33,15 @@
       </div>
     </div>
   </div>
-  <h2 class="tac mt1" id="palvelut"><?=$pages->get(1017)->title?></h2>
+  <!--<h2 class="tac mt1" id="palvelut"><?=$pages->get(1017)->title?></h2>
   <div class="tac mb2">
     <?=$pages->get(1017)->body?>
-  </div>
+  </div>-->
+</div>
 
+<div class="section bg--dark pt1 pb2">
   <h2 class="tac mt1" id="hinnasto"><?=$pages->get(1033)->title?></h2>
-  <div class="pricing">
+  <div class="pricing wrapper">
   	<div class="pricing__nav">
   		<ul class="unstyled">
   			<li><a class="slider-nav" data-slider="pricing-slider" data-slide="0" href="#">MacBook</a></li>
@@ -86,22 +91,40 @@
   		</ul>
   	</div>
   </div>
-
-  <div class="grid grid--gutter">
-    <?php
-      $references = $pages->find("template=page-reference");
-      foreach ($references as $reference) {
-      echo "<div class='w1/2@s w1/5@l'>";
-      echo $reference->render('_partial-reference.php');
-      echo "</div>";
-    }
-    ?>
-  </div>
 </div>
 
-<div class="darkbg">
-  <div class="wrapper wrapper--supernarrow box">
+<!--
+<div class="section">
+  <div class="wrapper">
+    <div class="grid grid--gutter">
+      <?php
+        $references = $pages->find("template=page-reference");
+        foreach ($references as $reference) {
+        echo "<div class='w1/2@s w1/5@l'>";
+        echo $reference->render('_partial-reference.php');
+        echo "</div>";
+      }
+      ?>
+    </div>
+  </div>
+</div>
+-->
+
+
+<div class="section">
+  <div class="wrapper wrapper--supernarrow">
+    <h2 class="tac mt1" id="<?php echo $pages->get("template=page-contact")->name?>"><?php echo $pages->get("template=page-contact")->title?></h2>
     <?php echo $pages->get("template=page-contact")->render('page-contact.php');?>
+  </div>
+</div>
+<div class="section">
+  <div class="wrapper grid grid--gutter">
+    <div class="w1/2">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d495.6620356530144!2d25.0329918!3d60.2031057!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNjDCsDEyJzExLjIiTiAyNcKwMDInMDAuNyJF!5e0!3m2!1sen!2sfi!4v1519288081024" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <div class="w1/2">
+      <?php echo $pages->get("template=page-contact")->body?>
+    </div>
   </div>
 </div>
 
