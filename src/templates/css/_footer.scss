@@ -4,6 +4,7 @@
   padding: $spacing / 2 0;
   background-color: #111;
   box-shadow: 0 -1px 0 rgba(#000, 0.1);
+  color: $color-fg;
   &__some {
     a.icon {
       display: inline-block;
