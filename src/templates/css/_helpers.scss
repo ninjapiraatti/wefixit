@@ -52,4 +52,9 @@
   width: 100%;
 }
 
+.w1 {
+  width: 100%;
+}
+
 @include responsive-helper(".w1\\/2", (s,m,half)) { width: 50%; };
+@include responsive-helper(".tal", (s,m,half)) { text-align: left; };
