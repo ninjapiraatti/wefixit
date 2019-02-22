@@ -42,102 +42,20 @@
   <div class="pricing wrapper">
   	<div class="pricing__nav">
   		<ul class="unstyled">
-  			<li><a class="slider-nav" data-slider="pricing-slider" data-slide="0" href="#">iPhone 5s/SE</a></li>
-  			<li><a class="slider-nav" data-slider="pricing-slider" data-slide="1" href="#">iPhone 6</a></li>
-  			<li><a class="slider-nav" data-slider="pricing-slider" data-slide="2" href="#">iPhone 6s</a></li>
-  			<li><a class="slider-nav" data-slider="pricing-slider" data-slide="3" href="#">iPhone 7</a></li>
-        <li><a class="slider-nav" data-slider="pricing-slider" data-slide="4" href="#">iPhone 8</a></li>
-  			<li><a class="slider-nav" data-slider="pricing-slider" data-slide="5" href="#">Macbook</a></li>
+        <?php foreach ($home->hinnasto as $item) : ?>
+          <li><a class="slider-nav" data-slider="pricing-slider" data-slide="<?=$item->id?>" href="#"><?=$item->title?></a></li>
+        <?php endforeach;?>
   		</ul>
   	</div>
 
   	<div class="slider-viewport">
   		<ul id="pricing-slider" class="slider">
+        <?php foreach ($home->hinnasto as $item) : ?>
   			<li class="slider__slide">
-  				<ul class="unstyled">5s/SE
-  					<li>Näytön korjaus 70</li>
-            <li>Akun vaihto 30</li>
-            <li>Latausportin vaihto 50</li>
-            <li>Korvakuulokkeen korjaus 35</li>
-            <li>Etukamera korjaus 50</li>
-  				</ul>
+  				<?php echo $item->body; ?>
   				<a href="<?php echo $pages->get(1022)->url;?>">Lisää</a>
   			</li>
-
-        <li class="slider__slide">
-  				<ul class="unstyled">6
-            <li>Näytön korjaus 85</li>
-            <li>Akun vaihto 35</li>
-            <li>Latausportin vaihto 50</li>
-            <li>Korvakuulokkeen korjaus 35</li>
-            <li>Etukamera korjaus 50</li>
-  				</ul>
-  				<a href="<?php echo $pages->get(1022)->url;?>">Lisää</a>
-  			</li>
-
-        <li class="slider__slide">
-  				<ul class="unstyled">6s
-            <li>Näytön korjaus 100</li>
-            <li>Akun vaihto 30</li>
-            <li>Latausportin vaihto 60</li>
-            <li>Korvakuulokkeen korjaus 50</li>
-            <li>Etukamera korjaus 50</li>
-  				</ul>
-  				<a href="<?php echo $pages->get(1022)->url;?>">Lisää</a>
-  			</li>
-
-        <li class="slider__slide">
-  				<ul class="unstyled">7
-            <li>Näytön korjaus 150</li>
-            <li>Akun vaihto 30</li>
-            <li>Latausportin vaihto 80</li>
-            <li>Korvakuulokkeen korjaus 50</li>
-            <li>Etukamera korjaus 85</li>
-  				</ul>
-  				<a href="<?php echo $pages->get(1022)->url;?>">Lisää</a>
-  			</li>
-
-        <li class="slider__slide">
-  				<ul class="unstyled">8
-            <li>Näytön korjaus 200</li>
-            <li>Akun vaihto 40</li>
-            <li>Latausportin vaihto 80</li>
-            <li>Korvakuulokkeen korjaus 60</li>
-            <li>Etukamera korjaus 65</li>
-  				</ul>
-  				<a href="<?php echo $pages->get(1022)->url;?>">Lisää</a>
-  			</li>
-
-        <li class="slider__slide">
-  				<ul class="unstyled">Macbook Pro
-            <li>Akun vaihto alk 80</li>
-            <li>Emolevyn korjaus alk 150</li>
-            <li>Näytön korjaus alk 90</li>
-            <li>Näppäimistön korjaus alk 100</li>
-            <li>Touchpadin korjaus alk 70</li>
-  				</ul>
-  				<a href="<?php echo $pages->get(1022)->url;?>">Lisää</a>
-  			</li>
-
-        <li class="slider__slide">
-  				<ul class="unstyled">Macbook Pro Retina
-            <li>Akun vaihto alk 140</li>
-            <li>Emolevyn korjaus alk 250</li>
-            <li>Näppäimistön korjaus alk 250</li>
-            <li>Touchpadin korjaus alk 100</li>
-  				</ul>
-  				<a href="<?php echo $pages->get(1022)->url;?>">Lisää</a>
-  			</li>
-
-        <li class="slider__slide">
-  				<ul class="unstyled">Macbook Air
-            <li>Akun vaihto alk 100</li>
-            <li>Emolevyn korjaus alk 180</li>
-            <li>Näppäimistön korjaus alk 150</li>
-            <li>Touchpadin korjaus alk 80</li>
-  				</ul>
-  				<a href="<?php echo $pages->get(1022)->url;?>">Lisää</a>
-  			</li>
+      <?php endforeach;?>
 
   		</ul>
   	</div>
