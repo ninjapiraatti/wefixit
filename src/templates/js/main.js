@@ -4,6 +4,7 @@ import SmoothScroll from "smoothscroll-polyfill";
 import "./main-navigation";
 import "./hanuri";
 import Liukuri from 'liukuri';
+import TouchClick from "./touchclick";
 
 var pricingSlider = document.querySelector('#pricing-slider');
 if (pricingSlider) {
@@ -25,7 +26,7 @@ if (pricingSlider) {
 	for (var i = 0; i < slidePager.length; i++) {
 		var slider = document.querySelector('#' + slidePager[i].getAttribute('data-slider'));
 		var slide = parseInt(slidePager[i].getAttribute('data-slide'));
-		slidePager[i].addEventListener('click', slider.slide.bind(slidePager[i], slide, false));
+		new TouchClick(slidePager[i], slider.slide.bind(slidePager[i], slide, false));
 	}
 }
 
