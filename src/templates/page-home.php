@@ -7,7 +7,7 @@
 <div class="hero">
   <div class="wrapper">
     <h1 class="hero__tagline"><?=$page->copy?></h1>
-    <p class="hero__copy"><?=$page->copy?></p>
+    <p class="hero__copy"><?=$page->summary?></p>
   </div>
 </div>
 <div class="wrapper box services" id="<?=$pages->get(1017)->name?>">
@@ -42,8 +42,10 @@
   <div class="pricing wrapper">
   	<div class="pricing__nav">
   		<ul class="unstyled">
+        <?php $sliderInt = 0; ?>
         <?php foreach ($home->hinnasto as $item) : ?>
-          <li><a class="slider-nav" data-slider="pricing-slider" data-slide="<?=$item->id?>" href="#"><?=$item->title?></a></li>
+          <li><a class="slider-nav" data-slider="pricing-slider" data-slide="<?=$sliderInt?>" href=""><?=$item->title?></a></li>
+          <?php $sliderInt++;?>
         <?php endforeach;?>
   		</ul>
   	</div>
@@ -53,7 +55,7 @@
         <?php foreach ($home->hinnasto as $item) : ?>
   			<li class="slider__slide">
   				<?php echo $item->body; ?>
-  				<a href="<?php echo $pages->get(1022)->url;?>">Lisää</a>
+  				<p>Kaikki hinnat sisältävät varaosan ja työn. Katso <a href="<?php echo $pages->get(1033)->url;?>">koko hinnasto.</a></p>
   			</li>
       <?php endforeach;?>
 

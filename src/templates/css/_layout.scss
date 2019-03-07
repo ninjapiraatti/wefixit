@@ -106,6 +106,17 @@ body {
 	}
 }
 
+.slider {
+  &__slide {
+    tr {
+      border-bottom: 1px dotted #444;
+    }
+    td {
+      padding-right: 30px;
+    }
+  }
+}
+
 .bg {
   &--dark {
     background-image: url('../img/black_denim_@2X.png');

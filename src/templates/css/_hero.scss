@@ -1,16 +1,18 @@
 .hero {
   color: $color-bg;
   background-color: $color-teal;
-  background-image: url('../img/tausta1.jpg');
+  background-image: url('../img/tausta_mobile.jpg');
   background-size: cover;
-  color: #fff;
   padding-bottom: 80px;
   @media (min-width: map-get($breakpoints, half)) {
     padding-bottom: 100px;
+    background-image: url('../img/tausta1.jpg');
+    color: #fff;
   }
   &__tagline {
     font-size: 2rem;
     padding-top: 120px;
+    margin-bottom: 20px;
     @media (min-width: map-get($breakpoints, m)) {
       font-size: 3rem;
       margin-bottom: 20px;

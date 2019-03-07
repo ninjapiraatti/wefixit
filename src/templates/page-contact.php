@@ -30,7 +30,7 @@
 
 	$formInput = $modules->get("InputfieldTextarea");
   $formInput->name = "viestike";
-  $formInput->label = "Viestisi:";
+  $formInput->label = "Viestisi: (Saat tarkemman hinta-arvion, kun kerrot laitteesi sarjanumeron/mallin.)";
   $formInput->required = true;
   $form->add($formInput);
 

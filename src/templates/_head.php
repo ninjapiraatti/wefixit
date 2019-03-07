@@ -26,7 +26,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'UA-129063242-1');
+    gtag('config', 'UA-129063242-1', { 'optimize_id': 'GTM-WCT7LHG'});
   </script>
   <?php if (isset($head)) foreach ($head as $entry) echo $entry; ?>
 
@@ -95,6 +95,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             "show_root" => false,
             "has_children_class" => "",
             "levels" => false,
+            "max_levels" => 1,
 						"levels_prefix" => "",
             'outer_tpl' => '<ul id="main-nav" class="nav nav--main">||</ul>',
             "inner_tpl" => "<ul id='main-nav-{id}' class='nav'>||</ul>",
@@ -102,9 +103,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						"list_field_class" => "",
             "item_tpl" => "<a class='nav__link' href='#{name}'>{title}</a>",
             "item_current_tpl" => "<a class='nav__link' href='#{name}' class='active'>{title}</a>",
-            'selector' => 'template=page|page-contact'
+            'selector' => 'template=page|page-contact|page-pricelist'
           );
 
+          if ($page !== $home) {
+							$navigationOptions['item_tpl'] = str_replace("href='", "href='{$home->url}", $navigationOptions['item_tpl']);
+						}
           // Render the navigation
           $navigationMarkup = $navigation->render($navigationOptions);
 

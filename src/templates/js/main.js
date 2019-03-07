@@ -3,8 +3,6 @@ document.body.classList.add("js");
 import SmoothScroll from "smoothscroll-polyfill";
 import "./main-navigation";
 import "./hanuri";
-import Isotope from 'isotope-layout';
-import matchesSelector from 'desandro-matches-selector/matches-selector';
 import Liukuri from 'liukuri';
 
 var pricingSlider = document.querySelector('#pricing-slider');
@@ -88,5 +86,29 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   //navipalikka();
+
+	// Smooth scroll
+
+	var siteHeader = document.querySelector('.site-header');
+  var siteHeaderTimeout;
+  var scrollLinks = document.querySelectorAll('[href^="#"]');
+  for (var i = 0; i < scrollLinks.length; i++) {
+    scrollLinks[i].addEventListener('click', function(event) {
+      event.preventDefault();
+      var target = document.querySelector(event.target.getAttribute('href'));
+      window.scrollBy({
+				top: target.getBoundingClientRect().top - 100,
+        behavior: 'smooth'
+      });
+      if (siteHeader) {
+        siteHeader.jemmaaja.disable();
+        clearTimeout(siteHeaderTimeout);
+        siteHeaderTimeout = setTimeout(function() {
+          siteHeader.transform = 0;
+          siteHeader.jemmaaja.enable();
+        }, 1000);
+      }
+    });
+  }
 
 });
