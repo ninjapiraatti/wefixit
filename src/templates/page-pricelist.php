@@ -4,15 +4,17 @@
 
 ?>
 
-<div class="wrapper">
+<div class="wrapper mt4 mb4">
   <div class="wysiwyg">
     <h2><?=$page->title?></h2>
-    <?php foreach ($page->children() as $item) : ?>
-      <div class="">
-        <h2 class="h2"><?=$item->title?></h2>
-        <?=$item->body?>
-      </div>
-    <?php endforeach; ?>
+    <div class="grid grid--gutter">
+      <?php foreach ($page->children() as $item) : ?>
+        <div class="mt2 w1 w1/2@m">
+          <h2 class="h2"><?=$item->title?></h2>
+          <?=$item->body?>
+        </div>
+      <?php endforeach; ?>
+    </div>
   </div>
 </div>
 
