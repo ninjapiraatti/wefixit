@@ -44,7 +44,6 @@ button,
 
 .icon {
   display: inline-block;
-  margin-bottom: -$font-size * 0.1875;
 
   fill: currentColor;
   stroke: currentColor;
@@ -68,6 +67,13 @@ button,
 	&--x {
     width: 16px;
     height: 16px;
+  }
+
+  &--whatsapp {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-left: 6px;
   }
 }
 

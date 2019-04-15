@@ -4,9 +4,9 @@
 
 ?>
 
-<div class="wrapper box">
+<div class="wrapper wysiwyg mt4">
   <h1 class="tagline"><?=$page->title?></h1>
-  <div class="tac"><?=$page->body?></div>
+  <div><?=$page->body?></div>
 </div>
 
 <?php

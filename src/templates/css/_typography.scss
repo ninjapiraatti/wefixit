@@ -57,6 +57,42 @@ h2 {
   line-height: 1.3;
 }
 
+.h1 {
+	$font-size: 2.488rem;
+	font-size: $font-size;
+	line-height: baseline($font-size);
+}
+
+.h2 {
+	$font-size: 2.074rem;
+	font-size: $font-size;
+	line-height: baseline($font-size, 0.5);
+}
+
+.h3 {
+	$font-size: 1.728rem;
+	font-size: $font-size;
+	line-height: baseline($font-size, 0.5);
+}
+
+.h4 {
+	$font-size: 1.44rem;
+	font-size: $font-size;
+	line-height: baseline($font-size, 0.5);
+}
+
+.h5 {
+	$font-size: 1.2rem;
+	font-size: $font-size;
+	line-height: baseline($font-size, 0.5);
+}
+
+.h6 {
+	$font-size: 1rem;
+	font-size: $font-size;
+	line-height: baseline($font-size);
+}
+
 ul {
   &.unstyled {
     list-style: none;
@@ -75,4 +111,50 @@ sup {
 
 sub {
   bottom: -0.25em;
+}
+
+.wysiwyg {
+	&:not(:first-child) { margin-top: $spacing; }
+	&:not(:last-child) { margin-bottom: $spacing; }
+
+	* + *:not(li) {
+		margin-top: $spacing;
+	}
+
+	// Firefox has a bug
+  br { margin: 0; }
+
+	h1 { @extend .h1 }
+	h2 { @extend .h2 }
+	h3 { @extend .h3 }
+  h4 { @extend .h4 }
+  h5 { @extend .h5 }
+  h6 { @extend .h6 }
+
+	small { @extend .small }
+
+	ul {
+		list-style: disc;
+	}
+
+	ol {
+		list-style: decimal;
+	}
+
+  ul, ol {
+    padding-left: 40px;
+  }
+
+	ul ul,
+	ul ol,
+	ol ul,
+	ol ol {
+		margin-left: $spacing;
+	}
+
+  figcaption {
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
 }
