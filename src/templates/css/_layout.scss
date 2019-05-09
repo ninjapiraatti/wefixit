@@ -62,6 +62,7 @@ body {
 		margin-bottom: 20px;
 		margin-top: 2px;
 		padding-bottom: 4px;
+    text-align: center;
 		ul {
 			li {
 				display: inline-block;
@@ -104,6 +105,15 @@ body {
 			}
 		}
 	}
+}
+
+.slider__slide {
+  table {
+    margin: 0 auto;
+  }
+  p {
+    text-align: center;
+  }
 }
 
 tr {
