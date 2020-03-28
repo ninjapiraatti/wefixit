@@ -4,7 +4,7 @@
 
 ?>
 
-<div class="hero">
+<div class="hero hero--bigbottom">
   <div class="wrapper">
     <h1 class="hero__tagline"><?=$page->copy?></h1>
     <p class="hero__copy"><?=$page->summary?></p>
@@ -62,6 +62,31 @@
   		</ul>
   	</div>
   </div>
+
+  <h2 class="tac mt1" id="hinnasto2"><?=$pages->get(1033)->title?></h2>
+  <div class="pricing wrapper">
+  	<div class="pricing__nav">
+  		<ul class="unstyled">
+        <?php $sliderInt2 = 0; ?>
+        <?php foreach ($home->hinnasto as $item) : ?>
+          <li><a class="slider-nav2" data-slider="pricing-slider2" data-slide="<?=$sliderInt2?>" href=""><?=$item->title?></a></li>
+          <?php $sliderInt2++;?>
+        <?php endforeach;?>
+  		</ul>
+  	</div>
+
+  	<div class="slider-viewport">
+  		<ul id="pricing-slider2" class="slider">
+        <?php foreach ($home->hinnasto as $item) : ?>
+  			<li class="slider__slide">
+  				<?php echo $item->body; ?>
+  				<p>Kaikki hinnat sisältävät varaosan ja työn. Katso <a href="<?php echo $pages->get(1033)->url;?>">koko hinnasto.</a></p>
+  			</li>
+      <?php endforeach;?>
+
+  		</ul>
+  	</div>
+  </div>
 </div>
 
 <!--
@@ -96,7 +121,7 @@
     </div>
     <div class="w1 w1/2@m">
       <div class="map-responsive">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d495.6620356530144!2d25.0329918!3d60.2031057!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNjDCsDEyJzExLjIiTiAyNcKwMDInMDAuNyJF!5e0!3m2!1sen!2sfi!4v1519288081024" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1982.6480470148053!2d25.031389615965598!3d60.20310728197306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4692093b168d0331%3A0xe6aa40e348af6ff6!2sWEFIXIT!5e0!3m2!1sen!2sfi!4v1558534352763!5m2!1sen!2sfi" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
       </div>
     </div>
   </div>

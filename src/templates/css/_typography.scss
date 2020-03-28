@@ -157,4 +157,28 @@ sub {
     font-style: italic;
   }
 
+  // ProcessWire classes
+
+  .align_left,
+  .align_right,
+  .align_center {
+    margin-bottom: $spacing / 2;
+  }
+
+  .align_left {
+    float: left;
+    margin-right: $spacing / 2;
+  }
+
+  .align_right {
+    float: right;
+    margin-left: $spacing / 2;
+  }
+
+  .align_center {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

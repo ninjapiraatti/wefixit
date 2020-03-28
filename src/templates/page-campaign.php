@@ -4,22 +4,33 @@
 
 ?>
 
+<div class="hero <?php if($page->checkbox) echo "hero--bigbottom" ?>" style="background-image: url('<?=$page->image->url ?>');" >
+  <div class="wrapper">
+    <h1 class="hero__tagline"><?=$page->title?></h1>
+    <p class="hero__copy"><?=$page->summary?></p>
+  </div>
+</div>
+
 <div class="wrapper mt4 mb4">
   <div class="section campaign">
-    <h1 class="tac h1"><?=$page->title?></h2>
-    <p class="tac mb2"><?=$page->summary?></p>
+    <?php if($page->body2) : ?>
     <div class="grid grid--gutter">
       <div class="w1 w1/2@m">
-        <div class="wysiwyg campaignbox">
+        <div class="wysiwyg <?php if($page->checkbox) echo "campaign__box" ?>">
           <?=$page->body?>
         </div>
       </div>
       <div class="w1 w1/2@m">
-        <div class="wysiwyg campaignbox">
+        <div class="wysiwyg <?php if($page->checkbox) echo "campaign__box" ?>">
           <?=$page->body2?>
         </div>
       </div>
     </div>
+    <?php else : ?>
+      <div class="wysiwyg">
+        <?=$page->body?>
+      </div>
+    <?php endif; ?>
   </div>
   <div class="section">
     <div class="w1 tac mt2 mb2">

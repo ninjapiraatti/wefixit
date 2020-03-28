@@ -91,6 +91,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						"list_field_class" => "",
             "item_tpl" => "<a class='nav__link' href='#{name}'>{title}</a>",
             "item_current_tpl" => "<a class='nav__link' href='#{name}' class='active'>{title}</a>",
+            'xtemplates' => 'page',
+            'xitem_tpl' => "<a class='nav__link' href='{url}'>{title}</a>",
+            'xitem_current_tpl' => "<a class='nav__link' href='{url}' class='active'>{title}</a>",
             'selector' => 'template=page|page-contact|page-pricelist'
           );
 
