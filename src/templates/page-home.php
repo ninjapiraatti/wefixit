@@ -63,12 +63,37 @@
   	</div>
   </div>
 
-  <h2 class="tac mt1" id="hinnasto2"><?=$pages->get(1033)->title?></h2>
+  <h2 class="tac mt1" id="hinnasto3"><?=$pages->get(1046)->title?></h2>
+  <div class="pricing wrapper">
+  	<div class="pricing__nav">
+  		<ul class="unstyled">
+        <?php $sliderInt3 = 0; ?>
+        <?php foreach ($home->hinnasto3 as $item) : ?>
+          <li><a class="slider-nav3" data-slider="pricing-slider3" data-slide="<?=$sliderInt3?>" href=""><?=$item->title?></a></li>
+          <?php $sliderInt3++;?>
+        <?php endforeach;?>
+  		</ul>
+  	</div>
+
+  	<div class="slider-viewport">
+  		<ul id="pricing-slider3" class="slider">
+        <?php foreach ($home->hinnasto3 as $item) : ?>
+  			<li class="slider__slide">
+  				<?php echo $item->body; ?>
+  				<p>Kaikki hinnat sisältävät varaosan ja työn. Katso <a href="<?php echo $pages->get(1046)->url;?>">koko hinnasto.</a></p>
+  			</li>
+      <?php endforeach;?>
+
+  		</ul>
+  	</div>
+  </div>
+
+  <h2 class="tac mt1" id="hinnasto2"><?=$pages->get(1047)->title?></h2>
   <div class="pricing wrapper">
   	<div class="pricing__nav">
   		<ul class="unstyled">
         <?php $sliderInt2 = 0; ?>
-        <?php foreach ($home->hinnasto as $item) : ?>
+        <?php foreach ($home->hinnasto2 as $item) : ?>
           <li><a class="slider-nav2" data-slider="pricing-slider2" data-slide="<?=$sliderInt2?>" href=""><?=$item->title?></a></li>
           <?php $sliderInt2++;?>
         <?php endforeach;?>
@@ -77,10 +102,10 @@
 
   	<div class="slider-viewport">
   		<ul id="pricing-slider2" class="slider">
-        <?php foreach ($home->hinnasto as $item) : ?>
+        <?php foreach ($home->hinnasto2 as $item) : ?>
   			<li class="slider__slide">
   				<?php echo $item->body; ?>
-  				<p>Kaikki hinnat sisältävät varaosan ja työn. Katso <a href="<?php echo $pages->get(1033)->url;?>">koko hinnasto.</a></p>
+  				<p>Kaikki hinnat sisältävät varaosan ja työn. Katso <a href="<?php echo $pages->get(1047)->url;?>">koko hinnasto.</a></p>
   			</li>
       <?php endforeach;?>
 

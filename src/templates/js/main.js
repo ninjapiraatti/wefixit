@@ -50,11 +50,32 @@ if (pricingSlider2) {
   var slidePager2 = document.querySelectorAll('.slider-nav2[data-slide]');
 	for (var j = 0; j < slidePager2.length; j++) {
 		var slider2 = document.querySelector('#' + slidePager2[j].getAttribute('data-slider'));
-    var slide2 = parseInt(slidePager2[j].getAttribute('data-slide'));
-    //console.log(slidePager2[1].getAttribute('data-slide'));
-    //console.log(slider2.slide2);
-    console.log(slide2);
-		new TouchClick(slidePager2[j], slider2.slide2.bind(slidePager2[j], slide2, false));
+    var slide = parseInt(slidePager2[j].getAttribute('data-slide'));
+		new TouchClick(slidePager2[j], slider2.slide.bind(slidePager2[j], slide, false));
+	}
+}
+
+var pricingSlider3 = document.querySelector('#pricing-slider3');
+if (pricingSlider3) {
+	new Liukuri(pricingSlider3, {
+		dynamicHeight: true,
+		onSlideChange: function(slider, newSlide, oldSlide) {
+			var oldIndex = Array.prototype.slice.call(slider.children).indexOf(oldSlide);
+			var newIndex = Array.prototype.slice.call(slider.children).indexOf(newSlide);
+
+			var oldPager = document.querySelector('.slider-nav3[data-slider="'+slider.id+'"][data-slide="'+oldIndex+'"]');
+			var newPager = document.querySelector('.slider-nav3[data-slider="'+slider.id+'"][data-slide="'+newIndex+'"]');
+
+			if (oldPager) oldPager.classList.remove('active');
+			if (newPager) newPager.classList.add('active');
+		}
+	});
+
+  var slidePager3 = document.querySelectorAll('.slider-nav3[data-slide]');
+	for (var j = 0; j < slidePager3.length; j++) {
+		var slider3 = document.querySelector('#' + slidePager3[j].getAttribute('data-slider'));
+    var slide = parseInt(slidePager3[j].getAttribute('data-slide'));
+		new TouchClick(slidePager3[j], slider3.slide.bind(slidePager3[j], slide, false));
 	}
 }
 
